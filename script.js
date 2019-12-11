@@ -56,7 +56,9 @@ var todoList = {
         this.displayTodos();
     }
 };
-//debugger;
+
+/*
+//debugger;-->for google dev tool inspecting
 //1. We want to access ALL button
 var displayTodosButton = document.getElementById("displayTodosButton");
 //2. We want to run displayTodos() method
@@ -69,3 +71,37 @@ var toggleAllButton = document.getElementById("toggleAllButton");
 toggleAllButton.addEventListener("click", function() {
     todoList.toggleAll();
 });
+
+*/
+
+//Refractoring the code above, we have changed the index.html/buttons elements also..
+var handlers = {
+    displayTodos: function() {
+        todoList.displayTodos();
+    },
+    addTodo: function(){
+        var addTodoTextInput = document.getElementById("addTodoTextInput");
+        todoList.addTodo(addTodoTextInput.value);
+        addTodoTextInput.value = "";
+    },
+    changeTodo: function() {
+        var changeTodoPositionInput = document.getElementById("changeTodoPositionInput");
+        var changeTodoTextInput = document.getElementById("changeTodoTextInput");
+        todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+        changeTodoTextInput.value = "";
+        changeTodoPositionInput.value = "";
+    },
+    deleteTodo: function() {
+        var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
+        todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+        deleteTodoPositionInput.value = "";
+    },
+    toggleCompleted: function() {
+        var toggleTodoPositionInput = document.getElementById("toggleTodoPositionInput");
+        todoList.toggleCompleted(toggleTodoPositionInput.valueAsNumber);
+        toggleTodoPositionInput.value = "";
+    },
+    toggleAll: function() {
+        todoList.toggleAll();
+    }
+};

@@ -22,15 +22,35 @@
             <h1 class = "topic">My Todo List</h1>
             <nav class = "navBar">
               <ul class = "navButtons">
-                <button id = "toggleAllButton">V</button>
-                <button id = "displayTodosButton">ALL</button>
+                <button onclick = "handlers.toggleAll()">V</button>
+                <button onclick = "handlers.displayTodos()">ALL</button>
                 <button>COMPLETED</button>
                 <button>ACTIVE</button>
               </ul>
           </nav>
           </div>
           <div class = "content">
-            
+            <div class = "entry">
+              <ul>
+                <li>
+                  <input id = "addTodoTextInput" class="new-todo" placeholder="What needs to be done?" autofocus="">
+                  <button class = "addButton" onclick = "handlers.addTodo()">[+]</button>
+                </li>
+                <li>
+                  <input id = "changeTodoPositionInput" type="number">
+                  <input id = "changeTodoTextInput" type="text">
+                  <button onclick="handlers.changeTodo()">Change</button>
+                </li>
+                <li>
+                  <input id = "deleteTodoPositionInput" type="number">
+                  <button onclick="handlers.deleteTodo()">Delete</button>
+                </li>
+                <li>
+                  <input id = "toggleTodoPositionInput" type="number">
+                  <button onclick="handlers.toggleCompleted()">Completed</button>
+                </li>
+              </ul>
+            </div>
           </div>  
         </div>        
         <script src = "script.js"></script>
