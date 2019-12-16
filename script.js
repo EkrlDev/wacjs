@@ -35,7 +35,30 @@ var todoList = {
     toggleAll: function(){
         var totalTodos = this.todos.length;
         var completedTodos = 0;
-        for(var i = 0; i < totalTodos; i++){
+        this.todos.forEach(function(todo) {
+            if(todo.completed === true ) {
+                completedTodos++;
+            }
+        });
+        // Refraction 1
+        /*if (completedTodos === totalTodos) {
+            this.todos.forEach(function(todo) {
+                todo.completed = false;
+            });
+        } else {
+            this.todos.forEach(function(todo) {
+                todo.completed = true;
+            });
+        }*/
+        // Refraction 2
+        this.todos.forEach(function (todo) {
+            if (completedTodos === totalTodos) {
+                todo.completed = false;
+            } else {
+                todo.completed = true;
+            }
+        })
+        /*for(var i = 0; i < totalTodos; i++){
             if(this.todos[i].completed === true){
                 completedTodos++;
             }
@@ -48,7 +71,7 @@ var todoList = {
             for(var i = 0; i < totalTodos; i++){
                 this.todos[i].completed = true;
             } 
-        }
+        }*/
     }
 };
 
@@ -109,6 +132,22 @@ var view = {
         var todosUl = document.getElementById("listOfTodos");
         todosUl.innerHTML = "";
         //listOfTodos.innerHTML = "";
+        //Refraction 1
+        
+        todoList.todos.forEach(function (todo, position) {
+            var todoLi = document.createElement("li");
+            var todoTextWithCompletion = "";
+            if(todo.completed === true) {
+                todoTextWithCompletion = "( X ) " + todo.todoText;
+            } else {
+                todoTextWithCompletion = "(   ) " + todo.todoText;
+            }
+            todoLi.id = position;
+            todoLi.textContent = todoTextWithCompletion;
+            todoLi.appendChild(this.createDeleteButton());
+            todosUl.appendChild(todoLi);
+        }, this);
+        /*
         for (var i = 0; i < todoList.todos.length; i++) {
             var todoLi = document.createElement("li");
             var todo = todoList.todos[i];
@@ -125,7 +164,7 @@ var view = {
             todosUl.appendChild(todoLi);
             
             //listOfTodos.appendChild(todoLi);
-        }
+        }*/
     },
     createDeleteButton: function() {
         var deleteButton = document.createElement("button");
