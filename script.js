@@ -1,21 +1,5 @@
 var todoList = {
     todos: [],
-    /*displayTodos: function() {
-        if (this.todos.length === 0) {
-            console.log("Your Todo list is empty!")    
-        }
-        else{
-            console.log("My Todos:");
-            for (let i = 0; i < this.todos.length; i++) {
-                if (this.todos[i].completed === true) {
-                    console.log('(X)', this.todos[i].todoText);
-                }
-                else {
-                    console.log('( )', this.todos[i].todoText);
-                }
-            }
-        }      
-    },*/
     addTodo: function(todoText){
         this.todos.push({
             todoText: todoText,
@@ -40,17 +24,6 @@ var todoList = {
                 completedTodos++;
             }
         });
-        // Refraction 1
-        /*if (completedTodos === totalTodos) {
-            this.todos.forEach(function(todo) {
-                todo.completed = false;
-            });
-        } else {
-            this.todos.forEach(function(todo) {
-                todo.completed = true;
-            });
-        }*/
-        // Refraction 2
         this.todos.forEach(function (todo) {
             if (completedTodos === totalTodos) {
                 todo.completed = false;
@@ -58,41 +31,8 @@ var todoList = {
                 todo.completed = true;
             }
         })
-        /*for(var i = 0; i < totalTodos; i++){
-            if(this.todos[i].completed === true){
-                completedTodos++;
-            }
-        }
-        if(completedTodos === totalTodos){
-            for(var i = 0; i < totalTodos; i++){
-                this.todos[i].completed = false;
-            }
-        } else {
-            for(var i = 0; i < totalTodos; i++){
-                this.todos[i].completed = true;
-            } 
-        }*/
     }
 };
-
-/*
-//debugger;-->for google dev tool inspecting
-//1. We want to access ALL button
-var displayTodosButton = document.getElementById("displayTodosButton");
-//2. We want to run displayTodos() method
-displayTodosButton.addEventListener("click", function() {
-    todoList.displayTodos();
-});
-//3. We want to access ToggleAll button
-var toggleAllButton = document.getElementById("toggleAllButton");
-//4. We want to run toggleAll() method
-toggleAllButton.addEventListener("click", function() {
-    todoList.toggleAll();
-});
-
-*/
-
-//Refractoring the code above, we have changed the index.html/buttons elements also..
 var handlers = {
     displayTodos: function() {
         view.displayTodos();
@@ -128,30 +68,8 @@ var handlers = {
 };
 var view = {
     displayTodos: function() {
-        //var todosUl = document.querySelector("ul");
         var todosUl = document.getElementById("listOfTodos");
-        todosUl.innerHTML = "";
-        //listOfTodos.innerHTML = "";
-        /*
-        for (var i = 0; i < todoList.todos.length; i++) {
-            var todoLi = document.createElement("li");
-            var todo = todoList.todos[i];
-            var todoTextWithCompletion = "";
-            if(todo.completed === true) {
-                todoTextWithCompletion = "( X ) " + todo.todoText;
-            } else {
-                todoTextWithCompletion = "(   ) " + todo.todoText;
-            }
-            //todoLi.textContent = todoList.todos[i].todoText;
-            todoLi.id = i;
-            todoLi.textContent = todoTextWithCompletion;
-            todoLi.appendChild(this.createDeleteButton());
-            todosUl.appendChild(todoLi);
-            
-            //listOfTodos.appendChild(todoLi);
-        }*/
-        //Refraction 1
-        
+        todosUl.innerHTML = ""; 
         todoList.todos.forEach(function (todo, position) {
             var todoLi = document.createElement("li");
             var todoTextWithCompletion = "";
@@ -182,6 +100,5 @@ var view = {
         });
     }
 };
-
 view.setUpEventListeners();
  
