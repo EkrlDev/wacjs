@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="width=device-width" />
+    <meta
+      name="description"
+      content="ToDo List"
+    />
+    <meta
+      name="keywords"
+      content="Todo list"
+    />
+    <title>My Todo List | Welcome</title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+      <div class = "container" id = "deneme">
+          <div class = "header">
+            <h1 class = "topic">My Todo List</h1>
+            <nav class = "navBar">
+              <ul class = "navButtons">
+                <button onclick = "handlers.toggleAll()">V</button>
+                <button onclick = "handlers.displayTodos()">ALL</button>
+                <button>COMPLETED</button>
+                <button>ACTIVE</button>
+              </ul>
+          </nav>
+          </div>
+          <div class = "content">
+            <div class = "entry">
+              <ul>
+                <li>
+                  <input id = "addTodoTextInput" class="new-todo" placeholder="What needs to be done?" autofocus="">
+                  <button class = "addButton" onclick = "handlers.addTodo()">[+]</button>
+                </li>
+                <li>
+                  <input id = "changeTodoPositionInput" type="number">
+                  <input id = "changeTodoTextInput" type="text">
+                  <button onclick="handlers.changeTodo()">Change</button>
+                </li>
+                <li>
+                  <input id = "toggleTodoPositionInput" type="number">
+                  <button onclick="handlers.toggleCompleted()">Completed</button>
+                </li>
+              </ul>
+              <ul id = "listOfTodos">
+              </ul>
+            </div>
+          </div>  
+        </div>       
+        <script src = "script.js"></script>
+  </body>
+  
+  </html>

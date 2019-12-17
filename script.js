@@ -70,6 +70,8 @@ var view = {
     displayTodos: function() {
         var todosUl = document.getElementById("listOfTodos");
         todosUl.innerHTML = ""; 
+        var todosUl = document.getElementById("listOfTodos");
+        todosUl.innerHTML = "";
         todoList.todos.forEach(function (todo, position) {
             var todoLi = document.createElement("li");
             var todoTextWithCompletion = "";
@@ -101,5 +103,5 @@ var view = {
     }
 };
 view.setUpEventListeners();
-deneme
+
  
