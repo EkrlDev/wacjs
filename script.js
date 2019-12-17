@@ -101,4 +101,5 @@ var view = {
     }
 };
 view.setUpEventListeners();
+deneme
  
